@@ -6,4 +6,25 @@ class DirectorsController < ApplicationController
     
     render({ :template => "director_templates/index.html.erb" })
   end
+  def wisest
+
+    @oldest = Director.where.not({ :dob => nil }).order({ :dob => :asc }).at(0)
+
+    render({ :template => "director_templates/eldest.html.erb" })
+  end
+
+  def beginner
+
+    @youngest = Director.where.not({ :dob => nil }).order({ :dob => :desc }).at(0)
+
+    render({ :template => "director_templates/youngest.html.erb" })
+  end
+  
+  def director_details
+    # params looks like {"an_id"=>"42"}
+    
+  
+    render({ :template => "director_templates/show.html.erb" })
+  end
+
 end
