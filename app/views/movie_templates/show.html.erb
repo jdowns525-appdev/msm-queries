@@ -10,55 +10,74 @@
 
 <dl>
   <dt>
-    title
+    Title
   </dt>
   <dd>
     <%= @the_movie.title %>
   </dd>
 
   <dt>
-    year
+    Year
   </dt>
   <dd>
     <%= @the_movie.year %>
   </dd>
 
   <dt>
-    duration
+    Duration
   </dt>
   <dd>
     <%= @the_movie.duration %>
   </dd>
 
   <dt>
-    description
+    Description
   </dt>
   <dd>
     <%= @the_movie.description %>
   </dd>
 
+
   <dt>
     Image
   </dt>
+
   <dd>
     <%= @the_movie.image %>
   </dd>
 
+
+  <dd>
+    <% movie_director = Director.where({ :id => @the_movie.director_id }).at(0) %>
+  </dd>
+
+  <dt>
+    Director
+  </dt>
+    <%= movie_director.name %>
   <dt>
     Created at
   </dt>
   <dd>
-    <%= time_ago_in_words(@the_movie.created_at) %> ago
+    <%= time_ago_in_words(movie_director.created_at) %> ago
   </dd>
 
   <dt>
     Updated at
   </dt>
   <dd>
-    <%= time_ago_in_words(@the_movie.updated_at) %> ago
+    <%= time_ago_in_words(movie_director.updated_at) %> ago
   </dd>
 </dl>
 
+
 <h2>Filmography<h2>
 
-<%= @filmography %>
+<table border="1">
+<% @filmography.each do |a_film| %>
+<tr>
+  <td>
+  <%= a_film.year %>
+  </td>
+</tr>
+<% end %>
