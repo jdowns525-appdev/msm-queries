@@ -8,7 +8,15 @@
     <td><%= a_thing.title %></td>
     <td><%= a_thing.year %></td>
     <td><%= a_thing.duration %></td>
-    <td><%= a_thing.description %></td>
+    <td>
+    <% movie_director = Director.where({ :id => a_thing.director_id }).at(0) %>
+  </dd>
+
+  <dt>
+    Director
+  </dt>
+    <%= movie_director.name %>
+  <dt>
 
 
 

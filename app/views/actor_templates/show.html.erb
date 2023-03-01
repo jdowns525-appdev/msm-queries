@@ -54,4 +54,11 @@
 
 <h2>Filmography<h2>
 
-<%= @filmography %>
+<table border="1">
+<%= @the_actor.character.each do |a_film| %>
+<tr>
+  <td>
+  <%= a_film.year %>
+  </td>
+</tr>
+<% end %>
