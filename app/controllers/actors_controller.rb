@@ -17,6 +17,8 @@ class ActorsController < ApplicationController
     
     @character = Character.where({ :actor_id => @the_actor.id })
 
+    
+
     render({ :template => "actor_templates/show.html.erb" })
   end
 
