@@ -56,23 +56,20 @@
 
 <table border="1">
     <% @character.each do | a_character | %>
-    <% movie = a_character.movie_id %>
-
-  <% single_movie = Movie.where({ :id => movie }).at(0) %>
     <tr>
-    <td><%= single_movie.title %></td>
-    <tr>
-    <td><%= single_movie.year %></td>
-    <tr>
-    <td><% a = Director.where({ :id => single_movie.director_id }).at(0)%></td>
-    <%= a.name %>
-    <tr>
-    <td><%= a_character.name %></td>
-    </td>
-
-
+      <% movie = a_character.movie_id %>
+      <% single_movie = Movie.where({ :id => movie }).at(0) %>
+      <td><%= single_movie.title %></td>
+      <td><%= single_movie.year %></td>
+      <td><% a = Director.where({ :id => single_movie.director_id }).at(0)%></td>
+      <td><%= a.name %></td>
+      <td><%= a_character.name %></td>
+      <td>
       <a href="/movies/<%= single_movie.id %>">
       Show Details
       </a>
-    </td>
+      </td>
+    </tr>
+
 <% end%>
+</table>
