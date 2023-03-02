@@ -52,10 +52,18 @@
   </dd>
 </dl>
 
-<h2> Filmography </h2>
+  
+  <h2> Filmography </h2>
 
-<% @filmography.each do |a_film | %>
-<%= a_film.title %>
+  <table border="1">
+    <% @filmography.each do | a_film | %>
+    <tr>
+    <td><dd><%= a_film.title %></td>
+    <td>
+      <a href="/movies/<%= a_film.id %>">
+      Show Details
+      </a>
+    </td>
 
-
+</td>
 <% end%>
